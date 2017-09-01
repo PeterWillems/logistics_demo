@@ -1,0 +1,32 @@
+<style>
+    ul {
+        list-style: circle;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    #tree-view {
+        overflow: scroll;
+        max-height: 600px;
+        max-width: 400px;
+    }
+</style>
+
+<script type="text/ng-template"  id="tree_item_renderer.html">
+    <label ng-style="{ 'background': (isHover ? '#aaf' : 'transparent') }"
+           ng-mouseenter="isHover = true;"
+           ng-mouseleave="isHover = false;"
+           ng-click="selectElement(data)">
+        {{data.name}}
+    </label>
+    <ul>
+        <li ng-repeat="data in data.children" ng-include="'tree_item_renderer.html'"></li>
+    </ul>
+</script>
+
+<div ng-if="tree">
+    <h4>tree view</h4>
+    <div id="tree-view" ng-init="data = tree" ng-include="'tree_item_renderer.html'" layout="column"></div>
+</div>

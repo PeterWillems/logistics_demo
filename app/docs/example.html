@@ -1,0 +1,34 @@
+<style>
+    canvas {
+        display: block;
+        width: 100%;
+        height: 600px;
+        cursor: default;
+    }
+</style>
+
+<div id="maincontainer" layout="column" flex>
+    <div id="topsection">
+        <h2>{{model_name}}</h2>
+        <div id="typeSelector" layout="row">
+            <md-button class="md-raised" ng-repeat="ifc_type in ifc_types">{{ifc_type.name}}</md-button>
+        </div>
+    </div>
+    <div id="contentwrapper" layout="row" flex>
+        <div id="treeContainer" class="bimsurfer-static-tree">
+            <treeview></treeview>
+        </div>
+        <div flex>
+            <h4>viewer</h4>
+            <div id="viewerContainer" flex="100">
+
+            </div>
+        </div>
+        <div id="dataContainer" class="bimsurfer-metadata" >
+            <h4>data</h4>
+            <div ng-if="element_name">
+                <span>name: {{element_name}}</span>
+            </div>
+        </div>
+    </div>
+</div>
