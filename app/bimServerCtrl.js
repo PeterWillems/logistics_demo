@@ -6,7 +6,7 @@ app.controller("bimServerCtrl", function ($scope, $mdSidenav) {
         var address = "https://thisisanexperimentalserver.com";
         var client = new BimServerClient(address);
         client.init(function () {
-            client.login("leon.vanberlo@tno.nl", "leon", function () {
+            client.login("leon.vanberlo@tno.nl", "leo", function () {
                 client.call("ServiceInterface", "getAllProjects", {
                     onlyTopLevel: true,
                     onlyActive: true
